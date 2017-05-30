@@ -50,3 +50,10 @@ Enjoy!
 ------
 
 The phpMyAdmin team
+
+fix:
+
+1、phpMyAdmin - Error
+You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause some data to be corrupted!
+
+2、undefined method Closure::bind from context 
