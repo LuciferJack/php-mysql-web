@@ -67,7 +67,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = 'sh01-dba-nuomi-bgoods-99.sh01';
 $cfg['Servers'][$i]['port'] = '5100';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '**********'; // use here your password
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
@@ -84,7 +84,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = '10.92.111.41';
 $cfg['Servers'][$i]['port'] = '5100';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '**********'; // use here your password
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
@@ -101,7 +101,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = 'nj03-dba-forum-ddbspush02-99.nj03';
 $cfg['Servers'][$i]['port'] = '5100';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '**********'; // use here your password
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
@@ -117,7 +117,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = 'nj03--dba-nuomi-goods-99.nj03';
 $cfg['Servers'][$i]['port'] = '5100';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '**********'; // use here your password
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
@@ -134,7 +134,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = 'nj03-dba-forum-ddbspush02-99.nj03';
 $cfg['Servers'][$i]['port'] = '5100';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '**********'; // use here your password
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 $cfg['Servers'][$i]['wait_timeout'] = '1000';
@@ -170,7 +170,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = '10.26.112.40';
 $cfg['Servers'][$i]['port'] = '5100';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '**********'; // use here your password
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
@@ -205,7 +205,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = 'nj02-dba-dbbk-001.nj02';
 $cfg['Servers'][$i]['port'] = '3603';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '**********'; // use here your password
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
