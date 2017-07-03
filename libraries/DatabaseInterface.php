@@ -11,6 +11,7 @@ use PMA\libraries\dbi\DBIExtension;
 use PMA\libraries\LanguageManager;
 use PMA\libraries\URL;
 use PMA\libraries\Logging;
+use \Exception;
 
 require_once './libraries/util.lib.php';
 
@@ -1443,6 +1444,15 @@ class DatabaseInterface
                 self::QUERY_STORE
             );
         }
+
+        $wait_timeout = 10000;
+        $this->query(
+            "SET session wait_timeout = $wait_timeout ;",
+            $link,
+            self::QUERY_STORE
+        );
+
+
     }
 
     /**

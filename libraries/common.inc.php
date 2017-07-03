@@ -56,7 +56,6 @@ if (getcwd() == dirname(__FILE__)) {
  * PHP 5 function, so cannot easily localize this message.
  */
 if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
-    var_dump("lt");
     die(
         'PHP 5.5+ is required. <br /> Currently installed version is: '
         . phpversion()

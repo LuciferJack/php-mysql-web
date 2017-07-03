@@ -18,6 +18,12 @@ $cfg['blowfish_secret'] = '123456'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 $cfg['ShowDatabasesNavigationAsTree']=true;
 $cfg['SQLQuery']['Edit']=true;
 $cfg['SQLQuery']['Explain']=true;
+$cfg['ShowSQL']=true;
+#执行时间
+$cfg['ExecTimeLimit']=0;
+#内存大小
+#$cfg['MemoryLimit'] = "10240M";
+
 #关闭自动提醒 sql
 #$cfg['CodemirrorEnable']=false;
 #$cfg['ShowSQL']=false;
@@ -47,6 +53,7 @@ $cfg['Servers'][$i]['user']          = 'root';
 $cfg['Servers'][$i]['password']      = '123456'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['Servers'][$i]['wait_timeout'] = '1000';
 #显示db详情
 $cfg['Servers'][$i]['verbose']='cp01-rdqa-dev171-lujunxu.epc.baidu.com:8899_本机';
 
@@ -130,6 +137,7 @@ $cfg['Servers'][$i]['user']          = 'lujunxu';
 $cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['Servers'][$i]['wait_timeout'] = '1000';
 #显示db详情
 $cfg['Servers'][$i]['verbose']='nj03-dba-forum-ddbspush02-99.nj03:5100_tpupload';
 
@@ -149,6 +157,59 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
 $cfg['Servers'][$i]['verbose']='10.99.201.114:8806_nlp_sandbox';
+
+
+
+#第八个db
+$i++;
+#第一mysql db
+/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'config';
+/* Server parameters */
+#糯米c 端 预定功能：bainuo_ktv
+$cfg['Servers'][$i]['host'] = '10.26.112.40';
+$cfg['Servers'][$i]['port'] = '5100';
+$cfg['Servers'][$i]['user']          = 'lujunxu';
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+#显示db详情
+$cfg['Servers'][$i]['verbose']='10.26.112.40:5100_bainuo_zizhucan';
+
+
+#第九个db
+$i++;
+#第一mysql db
+/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'config';
+/* Server parameters */
+#糯米c 端 预定功能：bainuo_ktv
+$cfg['Servers'][$i]['host'] = '10.99.201.114';
+$cfg['Servers'][$i]['port'] = '8806';
+$cfg['Servers'][$i]['user']          = 'root';
+$cfg['Servers'][$i]['password']      = 'work@nuomi'; // use here your password
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+#显示db详情
+$cfg['Servers'][$i]['verbose']='10.99.201.114:8806_biz_spider';
+
+
+
+#第十个db
+$i++;
+#第一mysql db
+/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'config';
+/* Server parameters */
+#糯米c 端 预定功能：bainuo_ktv
+$cfg['Servers'][$i]['host'] = 'nj02-dba-dbbk-001.nj02';
+$cfg['Servers'][$i]['port'] = '3603';
+$cfg['Servers'][$i]['user']          = 'lujunxu';
+$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+#显示db详情
+$cfg['Servers'][$i]['verbose']='nj02-dba-dbbk-001.nj02:3603_niux_fmis';
 
 
 

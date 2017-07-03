@@ -34,7 +34,6 @@ class ServerVariablesController extends Controller
     public function __construct()
     {
         parent::__construct();
-
         $this->variable_doc_links = $this->_getDocumentLinks();
     }
 

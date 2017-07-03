@@ -277,7 +277,17 @@ class DbSearch
             // Gets the SQL statements
             $newsearchsqls = $this->_getSearchSqls($each_table);
             // Executes the "COUNT" statement
-            $res_cnt = intval($GLOBALS['dbi']->fetchValue($newsearchsqls['select_count']));
+            $retVal = $GLOBALS['dbi']->fetchValue($newsearchsqls['select_count']);
+
+           /* if ($retVal === false) {
+                echo '<pre>' . var_export('false', true) . '</pre>';
+                exit;
+            } else {
+                echo '<pre>' . var_export('0', true) . '</pre>';
+                exit;
+            }*/
+            
+            $res_cnt = intval($retVal);
             $num_search_result_total += $res_cnt;
             // Gets the result row's HTML for a table
             $html_output .= $this->_getResultsRow(

@@ -766,6 +766,7 @@ class Config
             return false;
         }
 
+
         $cfg = array();
 
         /**

@@ -69,6 +69,7 @@ class DBIMysqli implements DBIExtension
     public function connect(
         $user, $password, $server
     ) {
+
         if ($server) {
             $server['host'] = (empty($server['host']))
                 ? 'localhost'
@@ -76,7 +77,6 @@ class DBIMysqli implements DBIExtension
         }
 
         // NULL enables connection to the default socket
-
         $link = mysqli_init();
 
         if (defined('PMA_ENABLE_LDI')) {
