@@ -63,7 +63,7 @@ You have enabled mbstring.func_overload in your PHP configuration. This option i
   - 基于phpMyAdmin且fix了某些bug，已经联系作者且merge进phpMyAdmin 4.7.2 milestone。
   - 基于hhvm和nginx，运行于百度开发机的环境。
   - 基于socket和百度备库访问环境做优化，可查询大数据量db。
-  - 使用方法：
+  - 使用方法：git clone https://github.com/LuciferJack/php-mysql-web.git 或者下载download zip，放到你的nginx或者web app 的webroot根目录即可。该项目没有依赖。
 
   ```sh
   复制config.inc.example.php 且重命名成：config.inc.php
