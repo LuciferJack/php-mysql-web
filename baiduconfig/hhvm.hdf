@@ -1,0 +1,424 @@
+# php执行器配置
+Eval {
+    # hiphop的扩展语法，关闭以保持与zend一致
+    EnableHipHopSyntax = false
+    EnableHipHopExperimentalSyntax = false
+    EnableXHP = false
+    # 同php的short_open_tag和asp_tags
+    EnableShortTags = true
+    EnableAspTags = false
+    # 开启ZendCompatLayer，如果关闭，则通过ZendCompatLayer编译的扩展不可用
+    EnableZendCompat = true
+    # 请求处理完时，调用对象的析构函数，开启以保持与zend一致
+    EnableObjDestructCall = true
+    # 如果php文件或其上级目录为符号链接，则__FILE__会返回实际目录地址，开启以保持与zend一致。但开启会影响性能，所以如果目录中没有符号链接，建议关闭
+    CheckSymLink = false
+    # 不写/tmp/perf-*.map，以免root分区磁盘满
+    PerfPidMap = false
+
+    # 打开Jit
+    Jit = true
+    # 默认为11，打开的话，Server会用非Jit模式处理完11个请求后（此时会统计类型信息，做类型推导，提升后续Jit的性能），才开始用Jit模式。
+    JitWarmupRequests = 0
+    # Jit缓存大小，如果PHP文件频繁更新可能会导致最终缓冲用完而出core，ASize/AStubSize/GlobalDataSize/AProfSize 的和最大只能设置为2G
+    JitASize = 94371840
+    JitAStubsSize = 94371840
+    JitGlobalDataSize = 20971520
+    JitAProfSize = 5033164
+    JitAHotSize = 5033164
+
+    # 开启下面两项可以在gdb时显示jit的php堆栈
+    #JitNoGdb = true
+    #GdbSyncChunks = 1
+
+    # 打印hhbc或hhas格式的字节码
+    #DumpBytecode = 1
+    #DumpHhas = true
+    
+    # 开启调试器
+    Debugger {
+        #EnableDebugger = false
+        EnableDebugger = true
+    }
+}
+
+# 日志配置
+Log {
+    # 日志等级 None (default) | Error | Warning | Info | Verbose 
+    Level = Info
+    # PHP的错误等级 E_ALL & ~E_NOTICE
+    RuntimeErrorReportingLevel = 6135
+    # 使用@抑制错误无效
+    NoSilencer = false
+    # 容许用户自己处理错误
+    AlwaysLogUnhandledExceptions = true 
+    # 是否打印日志头 [日期] [hphp] [进程号:线程号:请求编号:请求内日志编号]
+    Header = true
+    # 是否在日志中打印调用堆栈
+    InjectedStackTrace = false
+    # 据说可以打C++堆栈，但实验不出来
+    NativeStackTrace = false
+    # 单次请求中最大能打印多少条日志
+    MaxMessagesPerRequest = -1
+
+    # 是否启用日志文件
+    UseLogFile = true
+    # 使用cronolog，这样日志文件可以为 hhvm.log.%Y%m%d%H 的格式
+    UseCronolog = true
+    # 日志文件，如果设置了，将不会在标准输出中输出。可以在文件前加上 "|" ，如 "| grep Warning > hhvm.log"，则可以重定向到其它文件
+    File = /home/users/lujunxu/odp-3.0.2/log/hhvm/hhvm-error.log.%Y%m%d%H
+    SymLink = /home/users/lujunxu/odp-3.0.2/log/hhvm/hhvm-error.log
+
+    # 访问日志格式，与Apache一致，但是注意%D显示的时间单位是us而不是ms
+    AccessLogDefaultFormat = %h %l %u %t "%r" %>s %b "%{Referer}i" "%{Cookie}i" "%{User-Agent}i" %D (us)
+    # access日志
+    Access {
+        * {
+            File = /home/users/lujunxu/odp-3.0.2/log/hhvm/hhvm-access.log.%Y%m%d%H
+            SymLink = /home/users/lujunxu/odp-3.0.2/log/hhvm/hhvm-access.log
+            #Format = some Apache access log format string
+        }
+    }
+
+    # 管理后台日志
+    #AdminLog {
+    #    File = /home/users/lujunxu/odp-3.0.2/log/hhvm/hhvm-admin.log
+    #    Format = some Apache access log format string
+    #}
+
+    # 将错误按照stacktrace分组，将多条错误记录在同一行，还可以保存至数据库
+    #Aggregator = false
+    #Aggregator {
+    #  File = filename
+    #  Database = [username[:password]@]server[:port][/database]
+    #  SleepSeconds = 10   # polling cycle for aggregation
+    #}
+}
+
+# 错误处理，一般不需要更改，使用默认值即可
+ErrorHandling {
+    CallUserHandlerOnFatals = false
+#    NoInfiniteLoopDetection = false
+#    NoInfiniteRecursionDetection = false
+#    MaxSerializedStringSize = 100000000
+#    ThrowBadTypeExceptions = false
+#    ThrowNotices = false
+#    NoticeFrequency = 1    # 1 out of these many notices to log
+#    WarningFrequency = 1   # 1 out of these many warnings to log
+#    AssertActive = false
+#    AssertWarning = false
+}
+
+# 资源限制
+ResourceLimit {
+    SocketDefaultTimeout = -1  # in seconds
+    #SocketDefaultTimeout = 500   # in seconds
+    MaxRSS = 2000000000        # 最大占用的物理内存，如果超过，则进程退出
+    MaxRSSPollingCycle = 60    # 检查内存占用的时间间隔
+    DropCacheCycle = 0         # in seconds, how often to drop disk cache
+}
+
+# 进程PID文件
+PidFile = /home/users/lujunxu/odp-3.0.2/var/hhvm.pid
+
+# 服务器变量 $_SERVER['name'] = value
+#ServerVariables {
+#    name = value
+#}
+
+# 环境变量 $_ENV['name'] = value
+#EnvVariables {
+#    name = value
+#}
+
+# 服务器配置
+Server {
+    # 域名IP端口
+    #Host = www.domain.com
+    #IP = 0.0.0.0
+    Type = fastcgi
+    #Port = 8096
+    FileSocket = /home/users/lujunxu/odp-3.0.2/var/hhvm.sock
+    # 处理的线程数量
+    ThreadCount = 8
+    # Backlog数量
+    Backlog = 1024
+    # 最大连接数，在fastcgi模式下有bug，勿用 
+    #ConnectionLimit = 1024
+    # 请求超时，对应php的max_execution_time，但是对cli模式也生效，而且会计入系统调用的时间，单位为秒。
+    #RequestTimeoutSeconds = 6000
+    RequestTimeoutSeconds = 0
+    #RequestTimeoutSeconds = 60000
+    #
+    ConnectionTimeoutSeconds = 12000
+
+
+    # 请求处理内存限制，对应php的memory_limit，单位为B
+    RequestMemoryMaxBytes = 30000000000
+    # post数据最大长度，对应php的post_max_size，单位为MB
+    #MaxPostSize = 100
+    MaxPostSize = 1024
+
+    # 网站根目录，即document root
+    SourceRoot = /home/users/lujunxu/odp-3.0.2/webroot
+    # require/include时的搜索目录，对应于php的include_path
+    IncludeSearchPaths {
+      * = .
+      * = /home/users/lujunxu/odp-3.0.2/php/lib/php
+      * = /home/users/lujunxu/odp-3.0.2/php/phplib/phptest
+    }
+
+    # hhvm启动时执行的文件，路径是相对于SourceRoot的，可以在此文件中做一些全局初始化工作，并将结果变量通过apc传递给worker线程
+    #StartupDocument = hhvm_startup.php
+    # 由后台线程运行的文件，可以在此文件中运行一些需要长时间运行的脚本。可以通过apc与worker线程间传递变量。
+    #ThreadDocuments {
+    #  * = somedoc.php
+    #}
+    # 与ThreadDocuments类似，只不过该文件会被无限次执行，每次执行后会回收内存，因此可以避免内存泄漏。
+    #ThreadLoopDocuments {
+    #  * = somedoc.php
+    #}
+    # worker线程处理每个请求之前都会执行这个文件，对应于php的auto_prepend_file
+    RequestInitDocument = /home/users/lujunxu/odp-3.0.2/php/phplib/bd/Init.php
+    # worker线程处理每个请求之前都会执行这个函数
+    #RequestInitFunction = function_name
+
+    # 代码预热
+    #WarmupThrottleRequestCount = 0
+    #WarmupRequests = {
+    #}
+    
+    # 通过admin /stop优雅关闭时最长等待的秒数，0为永久等待
+    GracefulShutdownWait = 3
+    # 启动时端口被占用的处理方式，HarshShutdown根据pid文件kill掉进程，EvilShutdown会kill掉任何监听该端口的进程
+    HarshShutdown = true
+    EvilShutdown = true
+
+    # 各种杂项
+    # 不在返回header里暴露自己是hhvm
+    ExposeHPHP = false
+    # 等待Dangling server回复的时间
+    DanglingWait = 0
+    # Recommend to turn this on when all the file paths in the file invoke table are relative for faster dynamic file inclusion.
+    #AlwaysUseRelativePath = false
+    # for port takeover between server instances 
+    #TakeoverFilename = filename
+    GzipCompressionLevel = 0
+    EnableMagicQuotesGpc = false
+    EnableKeepAlive = true
+    EnableOutputBuffering = true
+    # 允许发送chunked encoding的回复
+    EnableEarlyFlush = true
+    # 无论如何都发送chunked encoding的回复
+    ForceChunkedEncoding = false
+    # 允许worker线程直接发送回复，以提升响应速度
+    LibEventSyncSend = true
+    ResponseQueueCount = 0
+    # 缓存文件系统状态，有bug，建议关闭
+    StatCache = false
+
+    # php的ini格式配置文件，但只能识别很少的配置项
+    #IniFile = /home/users/lujunxu/odp-3.0.2/hhvm/conf/php.ini
+
+    APC {
+        EnableApc = true
+        # 可选项hash (default) | lfu | concurrent，concurrent可以减小锁开销
+        TableType = concurrent
+        # 延迟某些内存释放操作到别的线程完成，这个和Bd_Conf相互作用会导致内存泄漏，需要关掉
+        MemModelTreadmill = false
+    }
+}
+
+# 管理界面
+AdminServer {
+    #Port = 8196
+    ThreadCount = 1
+    Password = MhxzKhl
+}
+
+# 启动一个子Server，主Server可以将一些计算任务分发给子Server异步执行，从而实现并行化。
+#Xbox {
+#    ServerInfo {
+#        ThreadCount = 10
+#        Port = 8017
+#        MaxRequest = 500
+#        MaxDuration = 120
+#        WarmupDocument =
+#        RequestInitFunction =
+#        RequestInitDocument = 
+#    }
+#    ProcessMessageFunc = xbox_process_message
+#    DefaultLocalTimeoutMilliSeconds = 500
+#    DefaultRemoteTimeoutSeconds = 5
+#}
+
+# 统计相关配置
+Stats = false
+Stats {
+    Web = false
+    Memory = false
+    Memcache = false
+    MemcacheKey = false
+    SQL = false
+    SQLTable = false
+    NetworkIO = false
+    #XSL = xsl filename
+    #XSLProxy = url to get the xsl file
+    SlotDuration = 600  # in seconds
+    MaxSlot = 72        # 10 minutes x 72 = 12 hours
+    # 使用xhprof的话，要打开这个开关
+    EnableHotProfiler = true
+}
+
+# 代码库配置
+Repo {
+	Central {
+        # hhbc文件保存位置
+		Path = /home/users/lujunxu/odp-3.0.2/var/hhvm.hhbc
+	}
+}
+
+# Debug相关配置
+Debug {
+    # 在HTTP返回结果中打印详细的堆栈信息
+    FullBacktrace = false
+    ServerStackTrace = false
+    ServerErrorMessage = false
+    TranslateSource = false
+
+    # 记录请求到文件中，然后可以通过"-m reply"方式回放，来进行调试。可以从error log中查看该文件的位置。
+    RecordInput = false
+    # 自动删除返回200的请求的记录文件
+    ClearInputOnSuccess = true
+
+    ProfilerOutputDir = /home/users/lujunxu/odp-3.0.2/var/
+
+    # 出core时，会将堆栈信息记录到特定目录，及发邮件通知
+    #CoreDumpEmail = wangweibing@baidu.com
+    CoreDumpReport = true
+    CoreDumpReportDirectory = /home/users/lujunxu/odp-3.0.2/var/
+}
+
+# 加载扩展
+DynamicExtensions {
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/ap.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/conf.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/fcrypt.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/mcpack.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/msgpack.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/mysqli.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/neclient.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/netcomlog.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/protobuf.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/ral.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/sign.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/str.so
+    * = /home/users/lujunxu/odp-3.0.2/hhvm/ext/uconv.so
+}
+DynamicExtensionLoadFlags {
+    # 设置为false防止扩展间的符号冲突
+    RtldGlobal = false
+}
+
+ext_conf {
+    bd_conf {
+        # conf根路径，按照odp规范，应该为$ROOT_PATH/conf
+        conf_path = /home/users/lujunxu/odp-3.0.2/conf
+        # 检查文件是否修改的时间间隔，单位为秒，默认1秒
+        check_interval = 5.0
+        # 是否保证在同一个请求内获取同一个配置的结果始终一致（即使配置文件发生更改），默认为false
+        request_consistent = true
+        # 配置文件文件名后缀，默认为 .conf
+        conf_suffix = .conf
+        # 目录全局配置所在的配置文件名，默认为 global.conf
+        top_level_conf_file = global.conf
+        # 读取IDC相关配置的配置前缀，默认为 IDC_
+        idc_prefix = IDC_
+    }
+    bd_mcpack {
+        # mcpack默认buffer大小
+        mc_pack_default_bytes = 8192
+        # mcpack最大buffer大小，打包后不能超过这个长度
+        mc_pack_max_bytes = 536870912
+    }
+    ral {
+        conf_dir = /home/users/lujunxu/odp-3.0.2/conf/ral/
+        conf_file = ral.conf
+        passwd_file = ral-passwd.conf
+        log_dir = /home/users/lujunxu/odp-3.0.2/log/ral/
+        log_level = NOTICE
+        ral_log_name = ral.log
+        worker_log_name = ral-worker.log
+        #current_idc = jx
+        current_idc = sh
+        autoreload_interval = 10
+        max_service_num = 512
+        max_server_num = 512
+    }
+    ap {
+        environ = product
+        library = /home/users/lujunxu/odp-3.0.2/php/phplib
+        cache_config = 0
+        name_suffix = 0
+        name_separator = _
+        st_compatible = 1
+        action_prefer = 1
+        forward_limit = 5
+        lowcase_path = 1
+        use_namespace = 0
+        use_spl_autoload = 1
+    }
+    fcrypt {
+        php_fcrypt_hexstr_maxlen = 256
+    }
+    netcomlog{
+        filename = some-ui
+        level = 16
+        path = ui
+        auth = MhxzKhl
+        compress = 0
+        connectlife = -1
+        lingeron = 1
+        lingertime = 1
+    }
+}
+
+MySQL {
+    ReadOnly = false
+    ConnectTimeout = 6000000
+    ReadTimeout = 6000000
+    WaitTimeout = 6000000
+    #SlowQueryThreshold = 6000000
+    SlowQueryThreshold = 600
+    KillOnTimeout = false
+    MaxRetryOpenOnFail = 3
+    MaxRetryQueryOnFail = 3
+}
+
+# 机器特定配置，只要当前机器名匹配相应正则，则采用overwrite中的配置项，可用于分机房配置、小流量配置等场景 
+#Tiers {
+#    * {
+#        machine = /regex pattern/
+#        overwrite { # any config settings described in this documentation
+#        }
+#    }
+#}
+
+# 不建议直接用hhvm作为前端webserver，因此下面功能强烈不建议使用。建议用nginx或lighttpd作为前端转发。
+# ip黑白名单
+#IpBlockMap {
+#}
+# 虚拟主机
+#VirtualHost {
+#}
+# 代理转发服务器
+#Proxy {
+#}
+# 静态内容配置
+#StaticFile {
+#}
+
+hhvm.http.slow_query_threshold = 60000
+hhvm.server.connection_timeout_seconds = 60000
+hhvm.http.default_timeout = 60000
+

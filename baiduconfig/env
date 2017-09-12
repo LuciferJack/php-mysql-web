@@ -1,0 +1,6 @@
+1.phpmyadmin vesion >=4.7.0
+2.php version PHP 5.2.17 5.5.99-hiphop
+3.HipHop VM 3.0.1
+
+display:
+https://github.com/phpmyadmin/phpmyadmin/issues/13316
