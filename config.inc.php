@@ -14,7 +14,7 @@
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
  */
-$cfg['blowfish_secret'] = '123456'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+$cfg['blowfish_secret'] = '******'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 $cfg['ShowDatabasesNavigationAsTree']=true;
 $cfg['SQLQuery']['Edit']=true;
 $cfg['SQLQuery']['Explain']=true;
@@ -48,14 +48,14 @@ $i++;
 $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = 'cp01-rdqa-dev171-lujunxu.epc.baidu.com';
-$cfg['Servers'][$i]['port'] = '8899';
+$cfg['Servers'][$i]['port'] = 'port_num';
 $cfg['Servers'][$i]['user']          = 'root';
-$cfg['Servers'][$i]['password']      = '123456'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 $cfg['Servers'][$i]['wait_timeout'] = '1000';
 #显示db详情
-$cfg['Servers'][$i]['verbose']='cp01-rdqa-dev171-lujunxu.epc.baidu.com:8899_本机';
+$cfg['Servers'][$i]['verbose']='cp01-rdqa-dev171-lujunxu.epc.baidu.com:port_num_本机';
 
 #第二个db
 $i++;
@@ -65,13 +65,13 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 #B端商品备库_sh01-dba-nuomi-bgoods-99.sh01
 $cfg['Servers'][$i]['host'] = 'sh01-dba-nuomi-bgoods-99.sh01';
-$cfg['Servers'][$i]['port'] = '5100';
+$cfg['Servers'][$i]['port'] = 'port_num';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
-$cfg['Servers'][$i]['verbose']='sh01-dba-nuomi-bgoods-99.sh01:5100_B端商品库';
+$cfg['Servers'][$i]['verbose']='sh01-dba-nuomi-bgoods-99.sh01:port_num_B端商品库';
 
 
 #第三个db
@@ -82,13 +82,13 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 #糯米c 端 预定功能：bainuo_ktv
 $cfg['Servers'][$i]['host'] = '10.92.111.41';
-$cfg['Servers'][$i]['port'] = '5100';
+$cfg['Servers'][$i]['port'] = 'port_num';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
-$cfg['Servers'][$i]['verbose']='10.92.111.41:5100_bainuo_ktv';
+$cfg['Servers'][$i]['verbose']='10.92.111.41:port_num_bainuo_ktv';
 
 
 #第四个db
@@ -99,13 +99,13 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 #糯米c 端 预定功能：bainuo_ktv
 $cfg['Servers'][$i]['host'] = 'nj03-dba-forum-ddbspush02-99.nj03';
-$cfg['Servers'][$i]['port'] = '5100';
+$cfg['Servers'][$i]['port'] = 'port_num';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
-$cfg['Servers'][$i]['verbose']='nj03-dba-forum-ddbspush02-99.nj03:5100_nuomiplus';
+$cfg['Servers'][$i]['verbose']='nj03-dba-forum-ddbspush02-99.nj03:port_num_nuomiplus';
 
 #第五个db
 $i++;
@@ -115,13 +115,13 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 #糯米c 端 预定功能：bainuo_ktv
 $cfg['Servers'][$i]['host'] = 'nj03--dba-nuomi-goods-99.nj03';
-$cfg['Servers'][$i]['port'] = '5100';
+$cfg['Servers'][$i]['port'] = 'port_num';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
-$cfg['Servers'][$i]['verbose']='nj03--dba-nuomi-goods-99.nj03:5100_c_goods';
+$cfg['Servers'][$i]['verbose']='nj03--dba-nuomi-goods-99.nj03:port_num_c_goods';
 
 
 #第六个db
@@ -132,14 +132,14 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 #糯米c 端 预定功能：bainuo_ktv
 $cfg['Servers'][$i]['host'] = 'nj03-dba-forum-ddbspush02-99.nj03';
-$cfg['Servers'][$i]['port'] = '5100';
+$cfg['Servers'][$i]['port'] = 'port_num';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 $cfg['Servers'][$i]['wait_timeout'] = '1000';
 #显示db详情
-$cfg['Servers'][$i]['verbose']='nj03-dba-forum-ddbspush02-99.nj03:5100_tpupload';
+$cfg['Servers'][$i]['verbose']='nj03-dba-forum-ddbspush02-99.nj03:port_num_tpupload';
 
 
 #第七个db
@@ -152,7 +152,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = '10.99.201.114';
 $cfg['Servers'][$i]['port'] = '8806';
 $cfg['Servers'][$i]['user']          = 'root';
-$cfg['Servers'][$i]['password']      = 'work@nuomi'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
@@ -168,13 +168,13 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 #糯米c 端 预定功能：bainuo_ktv
 $cfg['Servers'][$i]['host'] = '10.26.112.40';
-$cfg['Servers'][$i]['port'] = '5100';
+$cfg['Servers'][$i]['port'] = 'port_num';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
-$cfg['Servers'][$i]['verbose']='10.26.112.40:5100_bainuo_zizhucan';
+$cfg['Servers'][$i]['verbose']='10.26.112.40:port_num_bainuo_zizhucan';
 
 
 #第九个db
@@ -187,7 +187,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = '10.99.201.114';
 $cfg['Servers'][$i]['port'] = '8806';
 $cfg['Servers'][$i]['user']          = 'root';
-$cfg['Servers'][$i]['password']      = 'work@nuomi'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
@@ -205,11 +205,45 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = 'nj02-dba-dbbk-001.nj02';
 $cfg['Servers'][$i]['port'] = '3603';
 $cfg['Servers'][$i]['user']          = 'lujunxu';
-$cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 #显示db详情
 $cfg['Servers'][$i]['verbose']='nj02-dba-dbbk-001.nj02:3603_niux_fmis';
+
+
+#第十一个db
+$i++;
+#第一mysql db
+/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'config';
+/* Server parameters */
+#糯米c 端 预定功能：bainuo_ktv
+$cfg['Servers'][$i]['host'] = 'nj02-dba-dbbk-003.nj02';
+$cfg['Servers'][$i]['port'] = '3603';
+$cfg['Servers'][$i]['user']          = 'lujunxu';
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+#显示db详情
+$cfg['Servers'][$i]['verbose']='nj02-dba-dbbk-003.nj02:3603_poi_relation';
+
+
+#第十二个db
+$i++;
+#第一mysql db
+/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'config';
+/* Server parameters */
+#糯米c 端 预定功能：bainuo_ktv
+$cfg['Servers'][$i]['host'] = 'nj03-dba-dbbk-006.nj03';
+$cfg['Servers'][$i]['port'] = 'port_num';
+$cfg['Servers'][$i]['user']          = 'lujunxu';
+$cfg['Servers'][$i]['password']      = '******'; // use here your password
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+#显示db详情
+$cfg['Servers'][$i]['verbose']='nj03-dba-dbbk-006.nj03:port_num_supplychain';
 
 
 
