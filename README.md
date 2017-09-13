@@ -121,7 +121,7 @@ You have enabled mbstring.func_overload in your PHP configuration. This option i
 
     #第二个db
     $i++;
-    #第一mysql db
+    #第二mysql db
     /* Authentication type */
     $cfg['Servers'][$i]['auth_type'] = 'config';
     /* Server parameters */
