@@ -110,9 +110,9 @@ You have enabled mbstring.func_overload in your PHP configuration. This option i
     $cfg['Servers'][$i]['auth_type'] = 'config';
     /* Server parameters */
     $cfg['Servers'][$i]['host'] = 'cp01-rdqa-***-lujunxu.epc.baidu.com';
-    $cfg['Servers'][$i]['port'] = '8899';
+    $cfg['Servers'][$i]['port'] = '****';
     $cfg['Servers'][$i]['user']          = 'root';
-    $cfg['Servers'][$i]['password']      = '123456'; // use here your password
+    $cfg['Servers'][$i]['password']      = '*******'; // use here your password
     $cfg['Servers'][$i]['compress'] = false;
     $cfg['Servers'][$i]['AllowNoPassword'] = true;
     $cfg['Servers'][$i]['wait_timeout'] = '1000';
@@ -127,9 +127,9 @@ You have enabled mbstring.func_overload in your PHP configuration. This option i
     /* Server parameters */
     #B端商品备库_sh01-dba-****-bgoods-99.sh01
     $cfg['Servers'][$i]['host'] = 'sh01-dba-***-bgoods-99.sh01';
-    $cfg['Servers'][$i]['port'] = '5100';
+    $cfg['Servers'][$i]['port'] = '****';
     $cfg['Servers'][$i]['user']          = 'lujunxu';
-    $cfg['Servers'][$i]['password']      = '5XDSan94g9'; // use here your password
+    $cfg['Servers'][$i]['password']      = '******'; // use here your password
     $cfg['Servers'][$i]['compress'] = false;
     $cfg['Servers'][$i]['AllowNoPassword'] = true;
     #显示db详情
